@@ -1,4 +1,4 @@
-package Maquina_Snacks;
+package Maquina_Snacks_Archivos.dominio;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,6 +1,7 @@
 package Maquina_Snacks_Archivos.presentacion;
 
 import Maquina_Snacks_Archivos.servicio.IServicioSnacks;
+import Maquina_Snacks_Archivos.servicio.ServicioSnacksArchivos;
 import Maquina_Snacks_Archivos.servicio.ServicioSnacksLista;
 import Maquina_Snacks_Archivos.dominio.Snack;
 
@@ -16,7 +17,7 @@ public class MaquinaSnacks {
         var salir = false;
         var consola = new Scanner(System.in);
         // creamos el objeto para obetener el serivico de snacks(lista)
-        IServicioSnacks servicioSnacks = new ServicioSnacksLista();
+        IServicioSnacks servicioSnacks = new ServicioSnacksArchivos();
         // creamos la lista de productos de tipo snack
         List<Snack> productos = new ArrayList<>();
         System.out.println("** Maquina de Snacks **");
@@ -39,7 +40,8 @@ public class MaquinaSnacks {
                 1- Comprar snack
                 2- Mostrar ticket
                 3- Agregar Nuevo Snack
-                4- Salir
+                4- Lista de Snacks
+                5- salir
                 Elige una opcion : \s""");
         //leemos y retornamos la opcion seleccionada
         return Integer.parseInt(consola.nextLine());
@@ -51,13 +53,17 @@ public class MaquinaSnacks {
             case 1 -> comprarSnack(consola,lista, servicioSnacks);
             case 2 -> mostrarTicket(lista);
             case 3 -> agregarSnack(consola, servicioSnacks);
-            case 4 ->{
+            case 4 -> ListarSnacks(servicioSnacks);
+            case 5 ->{
                 System.out.println("regresa pronto!");
                 salir= true;
             }
             default -> System.out.println("opcion invalida");
         }
         return salir;
+    }
+    private static void ListarSnacks(IServicioSnacks servicioSnacks){
+        servicioSnacks.mostrarSnacks();
     }
     private static void agregarSnack(Scanner consola,  IServicioSnacks servicioSnacks){
         System.out.println("nombre del snack: ");

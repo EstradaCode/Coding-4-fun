@@ -1,0 +1,7 @@
+1,papas,2000.0
+2,coca cola,2200.0
+3,turrón,300.0
+4,tutucas,1000.0
+5,Chizitos,2300.99
+6,Manaos,950.5
+7,Baggio,1000.0
